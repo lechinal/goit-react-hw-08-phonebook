@@ -15,30 +15,6 @@ export const fetchContacts = createAsyncThunk(
   }
 );
 
-/* 
-
-? limitarea numarului de telefon la 10 caractere:
- 
-
-export const fetchContacts = createAsyncThunk(
-  'contacts/fetchAll',
-  async (_, thunkAPI) => {
-    try {
-      const response = await axios.get('/contacts');
-      const contacts = response.data.map(contact => {
-        if (contact.number.length > 10) {
-          contact.number = contact.number.slice(0, 10);
-        }
-        return contact;
-      });
-      return contacts;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-*/
-
 export const addContact = createAsyncThunk(
   'contacts/addContact',
   async ({ name, number }, thunkAPI) => {
