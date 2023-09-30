@@ -1,19 +1,21 @@
-.filter {
+.filterContainer {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.inputFilter {
+.filterInput {
   height: 25px;
+  border-radius: 3px;
+  border-color: azure;
 }
 
-.inputFilter:hover {
+.filterInput:hover {
   border: 2px solid blue;
   cursor: pointer;
 }
 
-.inputFilter:focus {
+.filterInput:focus {
   box-shadow: 0 0 20px rgba(251, 0, 255, 0.5);
   background-color: rgba(245, 241, 145, 1);
   cursor: auto;

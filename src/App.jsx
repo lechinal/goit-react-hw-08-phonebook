@@ -1,81 +1,56 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectContacts,
-  selectError,
-  selectFilter,
-  selectIsLoading,
-} from './redux/selectors';
-import { fetchContacts } from 'redux/operations';
+import React, { useEffect, lazy } from 'react';
+import { useDispatch } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
+import { CommonLayout } from './components/CommonLayout/CommonLayout';
+import { PrivateRoute } from './routes/PrivateRoute';
+import { RestrictedRoute } from './routes/RestrictedRoute';
+import { refreshUser } from './redux/auth/operations';
 
-import { ContactForm } from './components/ContactForm/ContactForm';
-import { ContactList } from './components/ContactList/ContactList';
-import Filter from './components/Filter/Filter';
-import Paper from './components/Paper/Paper';
+import { useAuth } from './components/hooks/useAuth';
+import { Loader } from './components/Loader/Loader';
+
+const HomePage = lazy(() => import('./pages/HomePage/Home'));
+const RegisterPage = lazy(() => import('./pages/Register'));
+const Login = lazy(() => import('./pages/Login'));
+const Contacts = lazy(() => import('./pages/Contacts'));
 
 export const App = () => {
-  const contacts = useSelector(selectContacts);
-  const filter = useSelector(selectFilter);
-
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
 
-  const hendleAddContact = contact => {
-    if (contacts.some(({ name }) => name === contact.name)) {
-      alert(`${contact.name} is already in contacts!`);
-      return;
-    }
-  };
-
-  const filteredContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
-  );
+  const { isRefreshing } = useAuth();
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(refreshUser());
   }, [dispatch]);
 
-  return (
-    // <div>
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        // fontSize: 40,
-        color: '#010101',
-        flexDirection: 'column',
-        // backgroundColor: 'green',
-      }}
-    >
-      <div className="wrapper">
-        <h1>Phonebook</h1>
-        <Paper>
-          <ContactForm hendleAddContact={hendleAddContact} />
-        </Paper>
-        {!!contacts.length && (
-          <Paper>
-            <h2 style={{ textAlign: 'center' }}>Contacts</h2>
-            <Filter filter={filter} />
-            {isLoading && !error && (
-              <p style={{ color: 'green' }}>Loading contacts...</p>
-            )}
-            {error && (
-              <p style={{ color: 'red' }}>
-                Ooops, something went wrong! {error}
-              </p>
-            )}
-          </Paper>
-        )}
-        <Paper>
-          <ContactList contacts={filteredContacts} />
-        </Paper>
-      </div>
-    </div>
-    // </div>
+  return isRefreshing ? (
+    <Loader />
+  ) : (
+    <Routes>
+      <Route path="/" element={<CommonLayout />}>
+        <Route index element={<HomePage />} />
+        <Route
+          path="register"
+          element={
+            <RestrictedRoute
+              redirectTo="/contacts"
+              component={<RegisterPage />}
+            />
+          }
+        />
+        <Route
+          path="login"
+          element={
+            <RestrictedRoute redirectTo="/contacts" component={<Login />} />
+          }
+        />
+        <Route
+          path="contacts"
+          element={
+            <PrivateRoute redirectTo="/login" component={<Contacts />} />
+          }
+        />
+      </Route>
+    </Routes>
   );
 };
-
-export default App;

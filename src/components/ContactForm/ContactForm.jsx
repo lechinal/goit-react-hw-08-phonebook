@@ -1,57 +1,74 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from '../../redux/selectors';
-import { addContact } from '../../redux/operations';
-
+import { useState } from 'react';
 import styles from './ContactForm.module.css';
+import Paper from '../Paper/Paper.jsx';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from '../../redux/contacts/operations';
+import { getContacts } from '../../redux/contacts/selectors';
 
 export const ContactForm = () => {
-  const contactList = useSelector(selectContacts);
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
   const dispatch = useDispatch();
+  const items = useSelector(getContacts);
 
-  const hendleSubmitForm = event => {
-    event.preventDefault();
-    const form = event.target;
+  const handleChangeName = e => {
+    const { value } = e.target;
+    setName(value);
+  };
 
-    const name = event.target.elements.name.value;
-    const number = event.target.elements.number.value;
+  const handleChangeNumber = e => {
+    const { value } = e.target;
+    setNumber(value);
+  };
 
-    if (contactList.some(contact => contact.name === name)) {
-      alert(`${name} is already in contacts!`);
-      return form.reset();
+  const handleFormSubmit = e => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const contactsLists = [...items];
+    if (contactsLists.findIndex(contact => name === contact.name) !== -1) {
+      alert(`${name} is already in contacts.`);
+    } else {
+      dispatch(addContact({ name, number }));
+      setName('');
+      setNumber('');
     }
 
-    dispatch(addContact({ name, number }));
     form.reset();
   };
 
   return (
-    <div>
-      <form className={styles.form} onSubmit={hendleSubmitForm}>
-        <label className={styles.label}>Name</label>
-        <input
-          className={styles.inputContact}
-          type="text"
-          name="name"
-          pattern="^[a-zA-Z]+(([' -][a-zA-Z ])?[a-zA-Z]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-        />
-
-        <label className={styles.label}>Number</label>
-        <input
-          className={styles.inputContact}
-          type="tel"
-          name="number"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-        />
-
-        <button type="submit" className={styles.AddContactBtn}>
-          Add contacts
+    <Paper>
+      <form className={styles.form} onSubmit={handleFormSubmit}>
+        <label className={styles.label}>
+          Name
+          <input
+            className={styles.inputContact}
+            type="text"
+            name="name"
+            required
+            placeholder="Enter name"
+            value={name}
+            onChange={handleChangeName}
+          />
+        </label>
+        <label className={styles.label}>
+          Number
+          <input
+            className={styles.inputContact}
+            type="tel"
+            name="number"
+            required
+            placeholder="Enter phone number"
+            value={number}
+            onChange={handleChangeNumber}
+          />
+        </label>
+        <button className={styles.AddContactBtn} type="submit">
+          Add contact
         </button>
       </form>
-    </div>
+    </Paper>
   );
 };

@@ -1,0 +1,29 @@
+.userMenu {
+  display: flex;
+
+  gap: 30px;
+
+  /* background-color: green; */
+}
+
+.userText,
+.emailText {
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* .logoutBtn {
+  border: 1px solid rgb(162, 162, 162);
+  border-radius: 20px;
+  padding: 8px 16px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease;
+}
+
+.logoutBtn:hover {
+  background-color: red;
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+  color: black;
+} */

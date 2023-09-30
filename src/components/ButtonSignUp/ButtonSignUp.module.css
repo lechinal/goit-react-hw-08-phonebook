@@ -1,0 +1,10 @@
+.SignUpBtn {
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.SignUpBtn:hover {
+  transform: scale(1.2);
+  color: black;
+  transform: rotate(45deg);
+}
