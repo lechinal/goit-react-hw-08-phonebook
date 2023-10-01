@@ -8,6 +8,7 @@ import { refreshUser } from './redux/auth/operations';
 
 import { useAuth } from './components/hooks/useAuth';
 import { Loader } from './components/Loader/Loader';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
 const HomePage = lazy(() => import('./pages/HomePage/Home'));
 const RegisterPage = lazy(() => import('./pages/Register'));
@@ -50,7 +51,9 @@ export const App = () => {
             <PrivateRoute redirectTo="/login" component={<Contacts />} />
           }
         />
+        {/* <Route path="*" element={<NotFoundPage />} /> */}
       </Route>
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 };

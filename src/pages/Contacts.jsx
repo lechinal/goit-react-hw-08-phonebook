@@ -6,6 +6,7 @@ import { getIsLoading } from 'redux/contacts/selectors';
 import { ContactList } from 'components/ContactList/ContactList';
 import { fetchContacts } from 'redux/contacts/operations';
 import { Filter } from 'components/Filter/Filter';
+import SkillShowcase from 'components/SkillShowcase/SkillShowcase';
 
 export default function Contacts() {
   const dispatch = useDispatch();
@@ -26,6 +27,9 @@ export default function Contacts() {
         <Filter />
         <ContactList />
       </HelmetProvider>
+      <div>
+        <SkillShowcase />
+      </div>
     </div>
   );
 }

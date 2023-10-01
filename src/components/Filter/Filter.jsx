@@ -16,6 +16,7 @@ export const Filter = () => {
   return (
     <Paper>
       <div className={styles.filterContainer}>
+        <h2 className={styles.filterTitle}>Contacts</h2>
         <label className={styles.filterLabel}>
           Find contacts by name:
           <input

@@ -1,10 +1,20 @@
 .filterContainer {
   display: flex;
   flex-direction: column;
+}
+.filterTitle {
+  text-align: center;
+}
+.filterLabel {
+  display: flex;
+  flex-direction: column;
   gap: 15px;
+  /* text-align: center; */
+  font-style: italic;
 }
 
 .filterInput {
+  gap: 15px;
   height: 25px;
   border-radius: 3px;
   border-color: azure;
@@ -19,8 +29,4 @@
   box-shadow: 0 0 20px rgba(251, 0, 255, 0.5);
   background-color: rgba(245, 241, 145, 1);
   cursor: auto;
-}
-.filterLabel {
-  /* text-align: center; */
-  font-style: italic;
 }

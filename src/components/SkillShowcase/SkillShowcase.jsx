@@ -1,37 +1,20 @@
-/**
- * * React Icons for GitHub and LinkedIn
- *
- */
-// Icons;
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import styles from './SkillShowcase.module.css';
 
-// BsGithub;
-// SiLinkedin;
-
-// <h1>Connect with Me</h1>;
-
-/**
- * TODO:Skill Showcase / Connect with
- *
- *
- *
- */
-
-// const handleGitHubClick = () => {
-//   window.open('https://github.com/nume-utilizator-github', '_blank');
-// };
-
-// const handleLinkedInClick = () => {
-//   window.open(
-//     'https://www.linkedin.com/in/nume-utilizator-linkedin/',
-//     '_blank'
-//   );
-// };
-
-// <div>
-//   <button onClick={handleGitHubClick}>
-//     <i className="fab fa-github fa-2x"></i>
-//   </button>
-//   <button onClick={handleLinkedInClick}>
-//     <i className="fab fa-linkedin fa-2x"></i>
-//   </button>
-// </div>;
+export default function SkillShowcase() {
+  return (
+    <div className={styles.buttons}>
+      <Link to="https://www.linkedin.com/in/alin-lechintan/" target="_blank">
+        <button className={styles.button}>
+          <FaLinkedin className={styles.icon} />
+        </button>
+      </Link>
+      <Link to="https://github.com/lechinal" target="_blank">
+        <button className={styles.button}>
+          <FaGithub className={styles.icon} />
+        </button>
+      </Link>
+    </div>
+  );
+}
