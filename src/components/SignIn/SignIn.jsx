@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
-import Paper from '../Paper/Paper';
+// import Paper from '../Paper/Paper';
 
 import styles from './SignIn.module.css';
 import { RiLoginCircleFill } from 'react-icons/ri';
