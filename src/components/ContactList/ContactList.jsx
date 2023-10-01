@@ -24,6 +24,10 @@ export const ContactList = () => {
   const dispatch = useDispatch();
   const handleDelete = id => dispatch(delContact(id));
 
+  if (visibleContacts.length === 0) {
+    return null;
+  }
+
   return (
     <Paper>
       <ul className={styles.contactList}>

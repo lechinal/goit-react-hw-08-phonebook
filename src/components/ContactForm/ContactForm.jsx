@@ -39,42 +39,45 @@ export const ContactForm = () => {
   };
 
   return (
-    <Paper>
-      <form
-        className={styles.form}
-        onSubmit={handleFormSubmit}
-        autoComplete="off"
-      >
-        <label className={styles.label}>
-          Name
-          <input
-            className={styles.inputContact}
-            type="text"
-            name="name"
-            required
-            placeholder="Enter name"
-            value={name}
-            onChange={handleChangeName}
-            autoComplete="name"
-          />
-        </label>
-        <label className={styles.label}>
-          Number
-          <input
-            className={styles.inputContact}
-            type="tel"
-            name="number"
-            required
-            placeholder="Enter phone number"
-            value={number}
-            onChange={handleChangeNumber}
-            autoComplete="number"
-          />
-        </label>
-        <button className={styles.AddContactBtn} type="submit">
-          Add contact
-        </button>
-      </form>
-    </Paper>
+    <>
+      <h1>Phonebook</h1>
+      <Paper>
+        <form
+          className={styles.form}
+          onSubmit={handleFormSubmit}
+          autoComplete="off"
+        >
+          <label className={styles.label}>
+            Name
+            <input
+              className={styles.inputContact}
+              type="text"
+              name="name"
+              required
+              placeholder="Enter name"
+              value={name}
+              onChange={handleChangeName}
+              autoComplete="name"
+            />
+          </label>
+          <label className={styles.label}>
+            Number
+            <input
+              className={styles.inputContact}
+              type="tel"
+              name="number"
+              required
+              placeholder="Enter phone number"
+              value={number}
+              onChange={handleChangeNumber}
+              autoComplete="number"
+            />
+          </label>
+          <button className={styles.AddContactBtn} type="submit">
+            Add contact
+          </button>
+        </form>
+      </Paper>
+    </>
   );
 };

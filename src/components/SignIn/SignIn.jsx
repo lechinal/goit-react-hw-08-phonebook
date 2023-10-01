@@ -21,7 +21,7 @@ export const SignIn = () => {
   };
 
   return (
-    <Paper>
+    <div className="wrapper">
       <form
         className={styles.signInForm}
         onSubmit={handleSubmit}
@@ -52,6 +52,6 @@ export const SignIn = () => {
         </button>
         <div></div>
       </form>
-    </Paper>
+    </div>
   );
 };

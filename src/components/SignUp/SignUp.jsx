@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
-import Paper from '../Paper/Paper';
+// import Paper from '../Paper/Paper';
 import styles from './SignUp.module.css';
 
 import { BsSendFill } from 'react-icons/bs';
@@ -22,7 +22,7 @@ export const SignUp = () => {
   };
 
   return (
-    <Paper>
+    <div className="wrapper">
       <form
         className={styles.signUpForm}
         onSubmit={handleSubmit}
@@ -61,6 +61,6 @@ export const SignUp = () => {
           <BsSendFill className={styles.signUpBtnIcon} />
         </button>
       </form>
-    </Paper>
+    </div>
   );
 };

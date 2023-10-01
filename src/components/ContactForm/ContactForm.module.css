@@ -9,8 +9,8 @@
 
 .label {
   font-weight: bold;
-  /* text-align: center; */
-  text-align: left;
+
+  text-align: center;
   font-style: italic;
 }
 
@@ -20,9 +20,12 @@
   align-items: center;
   justify-content: center;
   margin-top: 20px;
-  border-radius: 3px;
+  border-radius: 10px;
   border-color: azure;
-  height: 25px;
+  height: 30px;
+  padding-left: 10px;
+  font-weight: bold;
+  font-style: italic;
 }
 .inputContact:hover {
   border: 2px solid blue;

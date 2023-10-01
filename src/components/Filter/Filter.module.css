@@ -15,9 +15,12 @@
 
 .filterInput {
   gap: 15px;
-  height: 25px;
-  border-radius: 3px;
+  height: 30px;
+  border-radius: 10px;
   border-color: azure;
+  font-weight: bold;
+  font-style: italic;
+  padding-left: 10px;
 }
 
 .filterInput:hover {
