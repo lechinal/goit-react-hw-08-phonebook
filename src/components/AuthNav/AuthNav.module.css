@@ -4,3 +4,8 @@
 
   /* background-color: lightgreen; */
 }
+
+.authBtn:hover {
+  color: #fff;
+  background-color: #8997ef;
+}

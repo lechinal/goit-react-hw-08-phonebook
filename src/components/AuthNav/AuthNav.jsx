@@ -8,10 +8,14 @@ export const AuthNav = () => {
     <div className={styles.authContainer}>
       <ButtonGroup variant="text" aria-label="text button group">
         <NavLink to="/register">
-          <Button sx={{ fontWeight: 'bold' }}>Sign Up</Button>
+          <Button className={styles.authBtn} sx={{ fontWeight: 'bold' }}>
+            Sign Up
+          </Button>
         </NavLink>
         <NavLink to="/login">
-          <Button sx={{ fontWeight: 'bold' }}>Sign In</Button>
+          <Button className={styles.authBtn} sx={{ fontWeight: 'bold' }}>
+            Sign In
+          </Button>
         </NavLink>
       </ButtonGroup>
     </div>

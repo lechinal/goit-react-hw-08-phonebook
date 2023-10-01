@@ -1,12 +1,16 @@
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import { logIn } from 'redux/auth/operations';
 // import Paper from '../Paper/Paper';
 
 import styles from './SignIn.module.css';
 import { RiLoginCircleFill } from 'react-icons/ri';
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 export const SignIn = () => {
   const dispatch = useDispatch();
+  const [rememberMe, setRememberMe] = useState(false);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -18,6 +22,10 @@ export const SignIn = () => {
       })
     );
     form.reset();
+  };
+
+  const handleRememberMeChange = e => {
+    setRememberMe(e.target.checked);
   };
 
   return (
@@ -45,7 +53,12 @@ export const SignIn = () => {
             placeholder="Enter password"
           />
         </label>
-
+        <FormControlLabel
+          control={<Checkbox />}
+          label={'Keep me logged in'}
+          checked={rememberMe}
+          onChange={handleRememberMeChange}
+        />
         <button className={styles.signInBtn} type="submit">
           Login
           <RiLoginCircleFill className={styles.signInBtnIcon} />

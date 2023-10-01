@@ -16,9 +16,18 @@ export const ButtonLogOut = () => {
 
   return (
     <Button
-      sx={{ fontWeight: 'bold', paddingTop: '15px' }}
+      sx={{ fontWeight: 'bold' }}
       variant="text"
       onClick={handleLogout}
+      onMouseOver={e => {
+        e.target.style.backgroundColor = '#8997ef';
+        e.target.style.color = '#fff';
+      }}
+      onMouseOut={e => {
+        e.target.style.backgroundColor = '';
+        e.target.style.color = '#1976d2';
+        e.target.style.fontWeight = 'bold';
+      }}
     >
       Logout
     </Button>
