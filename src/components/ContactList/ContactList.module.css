@@ -9,3 +9,7 @@
   max-height: 1000px;
   /* overflow-y: auto; */
 }
+.contactNumber,
+.contactName {
+  margin-right: 20px;
+}

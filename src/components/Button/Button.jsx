@@ -1,15 +1,27 @@
 import styles from './Button.module.css';
 import PropTypes from 'prop-types';
 
-const Button = ({ onClick }) => {
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+
+import Stack from '@mui/material/Stack';
+
+const DeleteButton = ({ onClick }) => {
   return (
-    <button type="button" onClick={onClick} className={styles.button}>
-      Delete
-    </button>
+    <Stack direction="row" spacing={2}>
+      <Button
+        className={styles.button}
+        variant="outlined"
+        startIcon={<DeleteIcon />}
+        onClick={onClick}
+      >
+        Delete
+      </Button>
+    </Stack>
   );
 };
 Button.propTypes = {
   handleDeleteContact: PropTypes.func,
 };
 
-export default Button;
+export default DeleteButton;
