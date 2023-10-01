@@ -1,11 +1,19 @@
 import { NavLink } from 'react-router-dom';
 import styles from './AuthNav.module.css';
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
 
 export const AuthNav = () => {
   return (
     <div className={styles.authContainer}>
-      <NavLink to="/register">Register</NavLink>
-      <NavLink to="/login">Log In</NavLink>
+      <ButtonGroup variant="text" aria-label="text button group">
+        <NavLink to="/register">
+          <Button>Sign Up</Button>
+        </NavLink>
+        <NavLink to="/login">
+          <Button>Sign In</Button>
+        </NavLink>
+      </ButtonGroup>
     </div>
   );
 };

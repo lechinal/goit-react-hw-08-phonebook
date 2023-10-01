@@ -1,15 +1,13 @@
 .nav {
-  margin-top: 5px;
 }
 
 .navLink {
-  margin-right: 15px;
   color: #fff;
   text-decoration: none;
   font-size: 20px;
 }
 
-.navLink:hover {
+/* .navLink:hover {
   color: #f00;
   font-weight: bold;
-}
+} */

@@ -12,23 +12,3 @@
   font-style: italic;
   padding-top: 7px;
 }
-
-.logoutBtn {
-  background-color: rgb(238, 174, 174);
-  color: #fff;
-  border: 1px solid rgb(162, 162, 162);
-  height: 55px;
-  padding-top: 5px;
-  margin-top: 7px;
-  border-radius: 20px;
-  cursor: pointer;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease, transform 0.2s ease,
-    box-shadow 0.3s ease;
-}
-
-.logoutBtn:hover {
-  background-color: red;
-  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
-  color: black;
-}
