@@ -5,7 +5,10 @@ import styles from './SkillShowcase.module.css';
 export default function SkillShowcase() {
   return (
     <div className={styles.buttons}>
-      <Link to="https://www.linkedin.com/in/alin-lechintan/" target="_blank">
+      <Link
+        to="https://www.linkedin.com/in/alin-lechintan-2582b181/"
+        target="_blank"
+      >
         <button className={styles.button}>
           <FaLinkedin className={styles.icon} />
         </button>
