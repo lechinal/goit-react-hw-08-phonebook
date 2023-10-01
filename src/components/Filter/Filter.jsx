@@ -16,15 +16,17 @@ export const Filter = () => {
   return (
     <Paper>
       <div className={styles.filterContainer}>
-        <label className={styles.filterLabel}>Find contacts by name: </label>
-        <input
-          className={styles.filterInput}
-          type="text"
-          name="filter"
-          placeholder="Enter contact name"
-          value={filter}
-          onChange={handleChange}
-        />
+        <label className={styles.filterLabel}>
+          Find contacts by name:
+          <input
+            className={styles.filterInput}
+            type="text"
+            name="filter"
+            placeholder="Enter contact name"
+            value={filter}
+            onChange={handleChange}
+          />
+        </label>
       </div>
     </Paper>
   );

@@ -1,13 +1,9 @@
 import styles from './Button.module.css';
 import PropTypes from 'prop-types';
 
-const Button = ({ handleDeleteContact }) => {
+const Button = ({ onClick }) => {
   return (
-    <button
-      type="button"
-      onClick={handleDeleteContact}
-      className={styles.button}
-    >
+    <button type="button" onClick={onClick} className={styles.button}>
       Delete
     </button>
   );

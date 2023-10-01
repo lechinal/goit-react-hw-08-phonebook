@@ -40,7 +40,11 @@ export const ContactForm = () => {
 
   return (
     <Paper>
-      <form className={styles.form} onSubmit={handleFormSubmit}>
+      <form
+        className={styles.form}
+        onSubmit={handleFormSubmit}
+        autoComplete="off"
+      >
         <label className={styles.label}>
           Name
           <input
@@ -51,6 +55,7 @@ export const ContactForm = () => {
             placeholder="Enter name"
             value={name}
             onChange={handleChangeName}
+            autoComplete="name"
           />
         </label>
         <label className={styles.label}>
@@ -63,6 +68,7 @@ export const ContactForm = () => {
             placeholder="Enter phone number"
             value={number}
             onChange={handleChangeNumber}
+            autoComplete="number"
           />
         </label>
         <button className={styles.AddContactBtn} type="submit">
