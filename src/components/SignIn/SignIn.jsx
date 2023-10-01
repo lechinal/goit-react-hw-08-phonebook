@@ -3,7 +3,7 @@ import { logIn } from 'redux/auth/operations';
 import Paper from '../Paper/Paper';
 
 import styles from './SignIn.module.css';
-// import ButtonSignIn from 'components/ButtonSignIn/ButtonSignIn';
+import { RiLoginCircleFill } from 'react-icons/ri';
 
 export const SignIn = () => {
   const dispatch = useDispatch();
@@ -47,7 +47,8 @@ export const SignIn = () => {
         </label>
 
         <button className={styles.signInBtn} type="submit">
-          LogIn
+          Login
+          <RiLoginCircleFill className={styles.signInBtnIcon} />
         </button>
         <div></div>
       </form>

@@ -3,6 +3,8 @@ import { register } from 'redux/auth/operations';
 import Paper from '../Paper/Paper';
 import styles from './SignUp.module.css';
 
+import { BsSendFill } from 'react-icons/bs';
+
 export const SignUp = () => {
   const dispatch = useDispatch();
 
@@ -28,7 +30,12 @@ export const SignUp = () => {
       >
         <label className={styles.signUpLabel}>
           Username
-          <input type="text" name="name" placeholder="Enter user name" />
+          <input
+            className={styles.signUpInput}
+            type="text"
+            name="name"
+            placeholder="Enter user name"
+          />
         </label>
         <label className={styles.signUpLabel}>
           Email
@@ -48,8 +55,10 @@ export const SignUp = () => {
             placeholder="Enter password"
           />
         </label>
+
         <button className={styles.signUpBtn} type="submit">
-          Register
+          Sign Up
+          <BsSendFill className={styles.signUpBtnIcon} />
         </button>
       </form>
     </Paper>
