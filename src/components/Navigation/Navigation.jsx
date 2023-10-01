@@ -10,12 +10,12 @@ export const Navigation = () => {
   return (
     <nav className={styles.nav}>
       <ButtonGroup variant="text" aria-label="text button group">
-        <NavLink to="/" className={styles.navLink}>
-          <Button>Home</Button>
+        <NavLink to="/">
+          <Button sx={{ fontWeight: 'bold' }}>Home</Button>
         </NavLink>
         {isLoggedIn && (
-          <NavLink to="/contacts" className={styles.navLink}>
-            <Button>Contacts</Button>
+          <NavLink to="/contacts">
+            <Button sx={{ fontWeight: 'bold' }}>Contacts</Button>
           </NavLink>
         )}
       </ButtonGroup>
