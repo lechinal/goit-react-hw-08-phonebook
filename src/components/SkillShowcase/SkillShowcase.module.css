@@ -10,10 +10,11 @@
   justify-content: center;
   background-color: #fff;
   color: #000;
-  border: 1px dashed #000;
+  border: 1px #000;
   border-radius: 5px;
 
   padding: 10px;
+  padding-right: 5px;
   margin: 0 10px;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -22,7 +23,7 @@
 }
 
 .button:hover {
-  background-color: #000;
+  background-color: #000000d1;
   color: #fff;
 }
 
@@ -35,4 +36,8 @@
   justify-content: center;
   /* height: 24px;
   width: 24px; */
+}
+
+.button:hover .icon {
+  color: #fff;
 }
