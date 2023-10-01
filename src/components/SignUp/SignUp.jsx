@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 // import Paper from '../Paper/Paper';
 import styles from './SignUp.module.css';
-import { signUpBtn } from './SignUp.module.css';
+// import { signUpBtn } from './SignUp.module.css';
 import { BsSendFill } from 'react-icons/bs';
 
 export const SignUp = () => {
