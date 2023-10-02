@@ -3,6 +3,9 @@ import { useState } from 'react';
 import styles from './ContactForm.module.css';
 import Paper from '../Paper/Paper.jsx';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../../redux/contacts/operations';
 import { getContacts } from '../../redux/contacts/selectors';
@@ -25,17 +28,18 @@ export const ContactForm = () => {
 
   const handleFormSubmit = e => {
     e.preventDefault();
-    const form = e.currentTarget;
-    const contactsLists = [...items];
-    if (contactsLists.findIndex(contact => name === contact.name) !== -1) {
-      alert(`${name} is already in contacts.`);
-    } else {
-      dispatch(addContact({ name, number }));
-      setName('');
-      setNumber('');
+    const isContactExist = items.some(
+      item => item.name.toLowerCase() === name.toLowerCase()
+    );
+    if (isContactExist) {
+      alert(`${name} is already in contacts`);
+      return;
     }
-
-    form.reset();
+    dispatch(addContact({ name, number }));
+    toast.success(`${name} added to contacts`);
+    setName('');
+    setNumber('');
+    e.currentTarget.reset();
   };
 
   return (
@@ -77,6 +81,7 @@ export const ContactForm = () => {
             Add contact
           </button>
         </form>
+        <ToastContainer autoClose={3000} />
       </Paper>
     </>
   );

@@ -2,6 +2,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { delContact } from '../../redux/contacts/operations';
 import { getContacts, getFilter } from 'redux/contacts/selectors';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import Paper from '../Paper/Paper';
 import Button from '../Button/Button';
 import styles from './ContactList.module.css';
@@ -22,7 +25,17 @@ export const ContactList = () => {
   const visibleContacts = getVisibleContacts(contacts, filter);
 
   const dispatch = useDispatch();
-  const handleDelete = id => dispatch(delContact(id));
+  // const handleDelete = id => dispatch(delContact(id));
+
+  const handleDelete = id => {
+    const contact = contacts.find(contact => contact.id === id);
+    if (!contact) {
+      toast.error('Contact not found');
+      return;
+    }
+    dispatch(delContact(id));
+    toast.success(`${contact.name} deleted successfully`);
+  };
 
   if (visibleContacts.length === 0) {
     return null;
@@ -39,6 +52,7 @@ export const ContactList = () => {
           </li>
         ))}
       </ul>
+      <ToastContainer autoClose={3000} />
     </Paper>
   );
 };
