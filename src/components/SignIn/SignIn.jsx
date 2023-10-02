@@ -4,6 +4,7 @@ import { logIn } from 'redux/auth/operations';
 // import Paper from '../Paper/Paper';
 
 import styles from './SignIn.module.css';
+import GoBackButton from '../GoBackButton/GoBackButton';
 import { RiLoginCircleFill } from 'react-icons/ri';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -60,10 +61,10 @@ export const SignIn = () => {
           onChange={handleRememberMeChange}
         />
         <button className={styles.signInBtn} type="submit">
-          Login
+          LOGIN
           <RiLoginCircleFill className={styles.signInBtnIcon} />
         </button>
-        <div></div>
+        <GoBackButton />
       </form>
     </div>
   );

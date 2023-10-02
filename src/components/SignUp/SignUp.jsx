@@ -4,6 +4,7 @@ import { register } from 'redux/auth/operations';
 import styles from './SignUp.module.css';
 // import { signUpBtn } from './SignUp.module.css';
 import { BsSendFill } from 'react-icons/bs';
+import GoBackButton from 'components/GoBackButton/GoBackButton';
 
 export const SignUp = () => {
   const dispatch = useDispatch();
@@ -57,9 +58,10 @@ export const SignUp = () => {
         </label>
 
         <button className={styles.signUpBtn} type="submit">
-          Sign Up
+          SIGN UP
           <BsSendFill className={styles.signUpBtnIcon} />
         </button>
+        <GoBackButton />
       </form>
     </div>
   );

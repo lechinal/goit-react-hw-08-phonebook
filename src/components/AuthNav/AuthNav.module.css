@@ -1,11 +1,1 @@
-.authContainer {
-  display: flex;
-  gap: 15px;
 
-  /* background-color: lightgreen; */
-}
-
-.authBtn:hover {
-  color: #fff;
-  background-color: #8997ef;
-}
