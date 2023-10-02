@@ -10,8 +10,10 @@ export const UserMenu = () => {
 
   return (
     <div className={styles.userMenu}>
-      <p className={styles.userText}>Welcome {user.name} 👋</p>
-      <p className={styles.emailText}>You are logged in with:{user.email}</p>
+      <p className={styles.userText}>Welcome: {user.name} 👋</p>
+      <p className={styles.emailText}>
+        You are logged in with: {user.email} 📧
+      </p>
       <ButtonLogOut />
     </div>
   );
