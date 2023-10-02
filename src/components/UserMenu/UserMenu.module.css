@@ -12,3 +12,18 @@
   font-style: italic;
   padding-top: 7px;
 }
+
+@media (max-width: 599px) {
+  .userMenu {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .userText {
+    margin-bottom: 0.5rem;
+  }
+
+  .emailText {
+    display: none;
+  }
+}
