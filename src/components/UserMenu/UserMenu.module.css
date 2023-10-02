@@ -27,3 +27,17 @@
     display: none;
   }
 }
+@media (max-width: 399px) {
+  .userMenu {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .userText {
+    display: none;
+  }
+
+  .emailText {
+    display: none;
+  }
+}
